@@ -9,4 +9,39 @@ http://www.netzmeister-st-pauli.de
 This is a small collection of hints for MAC users who 
 are about to install couchapp and have some problems.
 
- 
+I am running an MAC OS X 10.5.6
+
+#1 Problems with easy_install
+-----------------------------
+
+Actually I had an error message while doing this:
+
+$ easy_install couchapp
+[...]
+The required version of setuptools (>=0.6c9) is not available, and
+can't be installed while this script is running. Please install
+ a more recent version first, using 'easy_install -U setuptools'.
+
+(Currently using setuptools 0.6c7 (/System/Library/Frameworks/Python.framework/Versions/2.5/Extras/lib/python))
+error: Setup script exited with 2
+
+To avoid this, you have to install a newer version of the setuptools. Simply type
+
+$ sudo easy_install -U setuptools
+Searching for setuptools
+Reading http://pypi.python.org/simple/setuptools/
+Best match: setuptools 0.6c9
+Processing setuptools-0.6c9-py2.5.egg
+setuptools 0.6c9 is already the active version in easy-install.pth
+Installing easy_install script to /usr/local/bin
+Installing easy_install-2.5 script to /usr/local/bin
+
+Using /Library/Python/2.5/site-packages/setuptools-0.6c9-py2.5.egg
+Processing dependencies for setuptools
+
+After having the newer version and repeating the first cmd, the error
+still occures. That's because you have to use the path /usr/local/bin
+
+$ sudo /usr/local/bin/easy_install couchapp
+
+Now everything works fine. 
